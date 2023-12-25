@@ -1,0 +1,52 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="40">
+        <mat-toolbar color="primary" class="mat-toolbar">CUSTOMER REGISTER</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="customer-form" [formGroup]="customerForm" (ngSubmit)="customerProcess()">
+            <mat-form-field class="mat-form-field">
+                <input matInput placeholder="Name" formControlName="name" required type="text" style="color: blue;" >
+                <small style="color:red"
+                                  *ngIf="customerForm.controls['name'].dirty && customerForm.hasError('required','name')"
+                                  class="text-danger form-inline  mt-0">*name is required</small>
+                              
+              </mat-form-field>
+            <mat-form-field class="mat-form-field">
+              <input matInput placeholder="Address1" formControlName="address1" required type="text" style="color: blue;" >
+              <small style="color:red"
+                                *ngIf="customerForm.controls['address1'].dirty && customerForm.hasError('required','address1')"
+                                class="text-danger form-inline  mt-0">*Address1 is required</small>
+                            
+            </mat-form-field>
+            <mat-form-field class="mat-form-field">
+              <input matInput placeholder="Address2" formControlName="address2" required type="text" style="color: blue;" >
+              <small style="color:red"
+                                *ngIf="customerForm.controls['address2'].dirty && customerForm.hasError('required','address2')"
+                                class="text-danger form-inline  mt-0">*Address1 is required</small>
+                            
+            </mat-form-field>
+
+
+            <mat-form-field class="mat-form-field">
+                <input matInput placeholder="Phone No" formControlName="phoneno" required type="text" style="color: blue;" >
+                <small style="color:red"
+                                  *ngIf="customerForm.controls['phoneno'].dirty && customerForm.hasError('required','phoneno')"
+                                  class="text-danger form-inline  mt-0">*PhoneNo is required</small>
+                              
+              </mat-form-field>
+          
+            <mat-form-field class="mat-form-field">
+                <input matInput placeholder="Email" type="email" required formControlName="email"  style="color: blue;">
+                
+                <!-- <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span> -->
+                <small style="color:red"
+                *ngIf="customerForm.controls['email'].dirty && customerForm.hasError('required','email')"
+                class="text-danger form-inline ">*Email is required</small>
+           
+              </mat-form-field>
+              <button mat-raised-button color="primary" type="submit" class="submit">CUSTOMER REGISTER</button>
+              <!-- <div class="text-center pt-4 text-muted" style="color: red;">Already have an account?  <a id="forgot"
+                routerLink="/Login" style="color:blue">Login</a> </div> -->
+    
+          </form>
+          
+    </mat-card>
+</div>

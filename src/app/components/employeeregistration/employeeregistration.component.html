@@ -1,0 +1,45 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary" class="mat-toolbar">EMPLOYEE REGISTER</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="emp-form" [formGroup]="empForm" (ngSubmit)="empProcess()">
+            <mat-form-field class="mat-form-field">
+                <input matInput placeholder="Name" formControlName="name" required type="text" style="color: blue;" >
+                <small style="color:red"
+                                  *ngIf="empForm.controls['name'].dirty && empForm.hasError('required','name')"
+                                  class="text-danger form-inline  mt-0">*name is required</small>
+                              
+              </mat-form-field>
+              
+            <mat-form-field class="mat-form-field">
+              <input matInput placeholder="Phone No" formControlName="phoneno" required type="text" style="color: blue;" >
+              <small style="color:red"
+                                *ngIf="empForm.controls['phoneno'].dirty && empForm.hasError('required','phoneno')"
+                                class="text-danger form-inline  mt-0">*PhoneNo is required</small>
+                            
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field">
+              <input matInput placeholder="Username" formControlName="username" required type="text" style="color: blue;" >
+              <small style="color:red"
+                                *ngIf="empForm.controls['username'].dirty && empForm.hasError('required','username')"
+                                class="text-danger form-inline  mt-0">*username is required</small>
+                            
+            </mat-form-field>
+          
+            <mat-form-field class="mat-form-field">
+                <input matInput placeholder="Password" type="password" required formControlName="password"  style="color: blue;">
+                
+                <!-- <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span> -->
+                <small style="color:red"
+                *ngIf="empForm.controls['password'].dirty && empForm.hasError('required','password')"
+                class="text-danger form-inline ">*password is required</small>
+           
+              </mat-form-field>
+              <button mat-raised-button color="primary" type="submit" class="submit">REGISTER</button>
+              <div class="text-center pt-4 text-muted" style="color: red;">Already have an account?  <a id="forgot"
+                routerLink="/Login" style="color:blue">Login</a> </div>
+    
+          </form>
+          
+    </mat-card>
+</div>

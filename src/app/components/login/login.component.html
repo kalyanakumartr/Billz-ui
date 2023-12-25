@@ -1,0 +1,29 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary" class="mat-toolbar">Login Page</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="loginForm" (ngSubmit)="loginProcess()">
+            <mat-form-field class="mat-form-field">
+              <input matInput placeholder="Username" formControlName="username" required type="text" style="color: blue;" >
+              <small style="color:red"
+                                *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')"
+                                class="text-danger form-inline  mt-0">*username is required</small>
+                            
+            </mat-form-field>
+          
+            <mat-form-field class="mat-form-field">
+                <input matInput placeholder="Password" type="password" required formControlName="password"  style="color: blue;">
+                
+                <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                <small style="color:red"
+                *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"
+                class="text-danger form-inline ">*password is required</small>
+           
+              </mat-form-field>
+              <button mat-raised-button color="primary" type="submit" class="submit">Login</button>
+              <div class="text-center pt-4 text-muted" style="color: red;">Don't have an account? <a id="forgot"
+                routerLink="/empregister" style="color:blue">Employee Register </a> </div>
+    
+          </form>
+          
+    </mat-card>
+</div>
